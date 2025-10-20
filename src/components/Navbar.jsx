@@ -1,7 +1,8 @@
 import React from "react";
 import logo from "../images/Frame.png";
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
 import { IoIosSearch } from "react-icons/io";
+import './nav.css'
 
 const Navbar = () => {
   return (
@@ -19,12 +20,15 @@ const Navbar = () => {
         />
       </div>
 
-      <ul className="flex gap-6 text-md font-medium text-white">
-        <NavLink to="">News</NavLink>
-        <NavLink to="">Destination</NavLink>
+      <div className="flex gap-6 text-md font-medium text-white items-center">
+        <NavLink to="/news">News</NavLink>
+        <NavLink to="/destination">Destination</NavLink>
         <NavLink to="">Blog</NavLink>
-        <NavLink to="">Contact</NavLink>
-      </ul>
+        {/* <NavLink to="">Contact</NavLink> */}
+      <Link to="/connect/login" className="btn btn-warning py-1 px-5">
+        Login
+      </Link>
+      </div>
     </div>
   );
 };

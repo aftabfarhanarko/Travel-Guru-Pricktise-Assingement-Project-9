@@ -4,6 +4,7 @@ import png1 from "../images/Sajek.png";
 import png2 from "../images/Sreemongol.png";
 import png3 from "../images/sundorbon.png";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
+import { Link } from "react-router";
 
 const Home = () => {
   return (
@@ -20,59 +21,94 @@ const Home = () => {
         </button>
       </div>
 
-     <div className="py-6">
-  <div className="w-full max-w-4xl mx-auto">
-    {/* Carousel */}
-    <div className="carousel w-full">
-      {/* Slide 1 */}
-      <div id="item1" className="carousel-item w-full flex justify-center gap-6">
-        {[png1, png2, png3].map((img, idx) => (
-          <div
-            key={idx}
-            className="relative w-80 overflow-hidden rounded-3xl shadow-lg hover:scale-102 transition-transform duration-300"
-          >
-            <img src={img} className="w-full h-full object-cover " /> 
-            <div className="absolute inset-0 flex items-end justify-center p-4 bg-black/35 rounded-3xl hover:border-3 border-yellow-400">
-              <h1 className="text-white text-xl font-bold text-center">
-                {["COX’S BAZAR", "SREEMANGAL", "SUNDARBANSR"][idx]}
-              </h1>
+      <div className="py-6">
+        <div className="w-full max-w-4xl mx-auto">
+          {/* Carousel */}
+          <div className="carousel w-full">
+            {/* Slide 1 */}
+            <div
+              id="item1"
+              className="carousel-item w-full flex justify-center gap-6"
+            >
+              <Link className="relative w-80 overflow-hidden rounded-3xl shadow-lg hover:scale-102 transition-transform duration-300">
+                <img src={png1} className="w-full h-full object-cover" />
+                <div className="absolute inset-0 flex items-end justify-center p-4 bg-black/35 rounded-3xl hover:border-3 border-yellow-400">
+                  <h1 className="text-white text-xl font-bold text-center">
+                    COX’S BAZAR
+                  </h1>
+                </div>
+              </Link>
+
+              <Link className="relative w-80 overflow-hidden rounded-3xl shadow-lg hover:scale-102 transition-transform duration-300">
+                <img src={png2} className="w-full h-full object-cover" />
+                <div className="absolute inset-0 flex items-end justify-center p-4 bg-black/35 rounded-3xl hover:border-3 border-yellow-400">
+                  <h1 className="text-white text-xl font-bold text-center">
+                    SREEMANGAL
+                  </h1>
+                </div>
+              </Link>
+
+              <Link className="relative w-80 overflow-hidden rounded-3xl shadow-lg hover:scale-102 transition-transform duration-300">
+                <img src={png3} className="w-full h-full object-cover" />
+                <div className="absolute inset-0 flex items-end justify-center p-4 bg-black/35 rounded-3xl hover:border-3 border-yellow-400">
+                  <h1 className="text-white text-xl font-bold text-center">
+                    SUNDARBANSR
+                  </h1>
+                </div>
+              </Link>
+            </div>
+
+            {/* Slide 2 */}
+            <div
+              id="item2"
+              className="carousel-item w-full flex justify-center gap-6"
+            >
+              <div className="relative w-80 overflow-hidden rounded-3xl shadow-lg hover:scale-103 transition-transform duration-300">
+                <img src={png1} className="w-full h-full object-cover" />
+                <div className="absolute inset-0 flex items-end justify-center p-4 bg-black/35 rounded-3xl hover:border-3 border-yellow-400">
+                  <h1 className="text-white text-xl font-bold text-center">
+                    COX’S BAZAR
+                  </h1>
+                </div>
+              </div>
+
+              <div className="relative w-80 overflow-hidden rounded-3xl shadow-lg hover:scale-103 transition-transform duration-300">
+                <img src={png2} className="w-full h-full object-cover" />
+                <div className="absolute inset-0 flex items-end justify-center p-4 bg-black/35 rounded-3xl hover:border-3 border-yellow-400">
+                  <h1 className="text-white text-xl font-bold text-center">
+                    SREEMANGAL
+                  </h1>
+                </div>
+              </div>
+
+              <div className="relative w-80 overflow-hidden rounded-3xl shadow-lg hover:scale-103 transition-transform duration-300">
+                <img src={png3} className="w-full h-full object-cover" />
+                <div className="absolute inset-0 flex items-end justify-center p-4 bg-black/35 rounded-3xl hover:border-3 border-yellow-400">
+                  <h1 className="text-white text-xl font-bold text-center">
+                    SUNDARBANSR
+                  </h1>
+                </div>
+              </div>
             </div>
           </div>
-        ))}
-      </div>
 
-      {/* Slide 2 */}
-      <div id="item2" className="carousel-item w-full flex justify-center gap-6">
-        {[png1, png2, png3].map((img, idx) => (
-          <div
-            key={idx}
-            className="relative w-80 overflow-hidden rounded-3xl shadow-lg hover:scale-103 transition-transform duration-300"
-          >
-            <img src={img} className="w-full h-full object-cover" /> {/* height fix */}
-            <div className="absolute inset-0 flex items-end justify-center p-4 bg-black/35 rounded-3xl hover:border-3 hover:border-yellow-400">
-              <h1 className="text-white text-xl font-bold text-center">
-                {["COX’S BAZAR", "SREEMANGAL", "SUNDARBANSR"][idx]}
-              </h1>
-            </div>
+          {/* Navigation Buttons */}
+          <div className="flex justify-center gap-3 mt-4">
+            <a
+              href="#item1"
+              className="btn btn-xs btn-outline bg-white text-black"
+            >
+              <AiOutlineLeft />
+            </a>
+            <a
+              href="#item2"
+              className="btn btn-xs btn-outline bg-white text-black"
+            >
+              <AiOutlineRight />
+            </a>
           </div>
-        ))}
+        </div>
       </div>
-    </div>
-
-    {/* Navigation Buttons */}
-    <div className="flex justify-center gap-3 mt-4">
-      <a href="#item1" className="btn btn-xs btn-outline btn-primary  text-white">
-       <AiOutlineLeft />
-      </a>
-      <a href="#item2" className="btn btn-xs btn-outline btn-primary text-white">
-       <AiOutlineRight />
-
-
-      </a>
-    </div>
-  </div>
-</div>
-
     </div>
   );
 };

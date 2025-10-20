@@ -10,5 +10,8 @@
 @import "tailwindcss";
 @plugin "daisyui"{
   themes: light --default;
-
 };
+
+a.activ{
+  text-decoration: underline;
+}
