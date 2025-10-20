@@ -20,7 +20,6 @@ const Register = () => {
 
     userCreat(emmail, password)
       .then((result) => {
-        console.log(result.user);
         toast.success("User Creat Success");
 
         profileUpdeat(displayName)

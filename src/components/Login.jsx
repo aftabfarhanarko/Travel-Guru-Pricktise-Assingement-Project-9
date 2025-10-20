@@ -1,7 +1,7 @@
 import React, { useContext, useRef, useState } from "react";
 import { FaEye, FaEyeSlash, FaFacebookF, FaGithub, FaGoogle } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../context/ContextProvider";
 import { toast } from "react-toastify";
 
@@ -9,16 +9,18 @@ const Login = () => {
   const [show, setShow] = useState(true);
   const { userLogingNow,resetEmil,googleSignUpUser,githubLogingUser } = useContext(AuthContext);
   const referncs = useRef(null);
+  const locations = useLocation();
+  console.log(locations);
+  const neaviget = useNavigate();
 
   const handelLoging = (e) => {
     e.preventDefault();
     const email = e.target.email?.value;
     const password = e.target.password?.value;
-    console.log({ email, password });
     userLogingNow(email, password)
       .then((result) => {
-        console.log(result.user);
         toast.success("User Login Successfully");
+        neaviget(`${locations.state ? locations.state: "/"}`);
       })
       .catch((error) => {
         toast.error(error.message);
@@ -31,7 +33,6 @@ const Login = () => {
     .then(() => {
       toast.success("Reset Password In Your Email")
     }).catch(err => {
-      console.log(err.message)
       toast.error(err.message);
     })
   }

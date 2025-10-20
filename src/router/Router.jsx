@@ -7,6 +7,7 @@ import Login from "../components/Login";
 import Register from "../components/Register";
 import News from "../components/News";
 import BookHotel from "../components/BookHotel";
+import PrivetRouter from "../provider/PrivetRouter";
 
 export const router = createBrowserRouter([
   {
@@ -29,7 +30,7 @@ export const router = createBrowserRouter([
       {
         path:"/hotel",
         loader: () => fetch("/privetdata.json"),
-        element: <BookHotel></BookHotel>
+        element: <PrivetRouter><BookHotel></BookHotel></PrivetRouter>
       }
     ],
   },

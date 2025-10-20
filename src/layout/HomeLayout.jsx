@@ -1,12 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import Navbar from "../components/Navbar";
 import { Outlet } from "react-router";
 import "../index.css";
-import bgImg from "../images/Rectangle 1.png"; // ✅ তোমার ব্যাকগ্রাউন্ড ইমেজ
+import bgImg from "../images/Rectangle 1.png"; 
+import { AuthContext } from "../context/ContextProvider";
+import Loding from "../components/Loding";
 
 const HomeLayout = () => {
+  const {loding} = useContext(AuthContext);
   return (
-    <div className="relative min-h-screen w-full overflow-hidden">
+   <>
+   {
+    loding ? <Loding></Loding> :<div className="relative min-h-screen w-full overflow-hidden">
       {/* 🔹 Background Image Layer */}
       <div
         className="absolute inset-0 bg-cover bg-center "
@@ -21,15 +26,15 @@ const HomeLayout = () => {
         <nav>
           <Navbar />
         </nav>
-        <section>
-
-        </section>
+        <section></section>
 
         <main className="px-8 py-10">
           <Outlet />
         </main>
       </div>
     </div>
+   }
+   </>
   );
 };
 

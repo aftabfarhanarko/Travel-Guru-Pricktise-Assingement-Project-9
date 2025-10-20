@@ -8,7 +8,6 @@ import { DotLoader, FadeLoader } from "react-spinners";
 
 const Navbar = () => {
   const { user, myUserSignOut, loding } = useContext(AuthContext);
-  console.log("My User", user);
 
   const goUserWebsite = () => {
     myUserSignOut();
@@ -29,9 +28,9 @@ const Navbar = () => {
       </div>
 
       <div className="flex gap-6 text-md font-medium text-white items-center">
+        <NavLink to="/">Home</NavLink>
         <NavLink to="/news">News</NavLink>
         <NavLink to="/destination">Destination</NavLink>
-        <NavLink to="">Blog</NavLink>
         {
           user && <NavLink to="/hotel">Book Hotel</NavLink>
         }

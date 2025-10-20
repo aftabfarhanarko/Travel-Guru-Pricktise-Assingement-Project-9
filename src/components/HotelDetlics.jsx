@@ -2,7 +2,6 @@ import React from "react";
 import { FaStar } from "react-icons/fa";
 
 const HotelDetlics = ({ data }) => {
-  console.log(data);
   return (
     <div className="flex bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 w-[600px] hover:shadow-lg transition p-3">
       {/* Left: Image */}

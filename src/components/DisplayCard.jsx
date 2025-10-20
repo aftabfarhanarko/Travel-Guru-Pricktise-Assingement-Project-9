@@ -2,7 +2,6 @@ import React from "react";
 import { CiStar } from "react-icons/ci";
 
 const DisplayCard = ({ item }) => {
-  console.log(item);
   return (
     <div className="bg-white/10 backdrop-blur-lg border border-white/20 shadow-xl rounded-2xl overflow-hidden transition transform hover:scale-105 hover:shadow-2xl duration-300">
       <img
