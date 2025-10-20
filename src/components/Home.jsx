@@ -6,7 +6,7 @@ import png3 from "../images/sundorbon.png";
 
 const Home = () => {
   return (
-    <div className="w-11/12 mx-auto flex-col md:flex md:mt-0 gap-10 justify-center items-center py-10">
+    <div className="w-11/12 mx-auto flex  md:mt-0 gap-10 justify-center items-center py-10">
       <div>
         <h1 className="text-6xl font-bold text-gray-200">Cox's bazar</h1>
         <p className="text-md text-gray-300 py-6">
@@ -19,74 +19,57 @@ const Home = () => {
         </button>
       </div>
 
-      <div className=" md:mt-0 mt-10">
-        <div className="w-full">
-          {/* Carousel */}
-          <div className="carousel w-full">
-            {/* Slide 1 */}
-            <div
-              id="item1"
-              className="carousel-item w-full flex gap-8 justify-center "
-            >
-              <div className=" relative">
-                <img src={png1} />
-                <div className=" absolute  pt-95 font-bold  text-white  text-3xl inset-0 bg-black/35 rounded-3xl px-3">
-                  <h1>COX’S BAZAR</h1>
-                </div>
-              </div>
-              <div className=" relative">
-                <img src={png2} />
-                <div className=" absolute  pt-95 font-bold  text-white  text-3xl inset-0 bg-black/35 rounded-3xl px-3">
-                  <h1>SREEMANGAL</h1>
-                </div>
-              </div>
-              <div className=" relative">
-                <img src={png3} />
-                <div className=" absolute  pt-95 font-bold  text-white  text-3xl inset-0 bg-black/35 rounded-3xl px-3">
-                  <h1>SUNDARBANSR</h1>
-                </div>
-              </div>
-
-            </div>
-
-            {/* Slide 2 */}
-            <div
-              id="item2"
-              className="carousel-item w-full flex justify-center gap-4"
-            >
-               <div className=" relative">
-                <img src={png1} />
-                <div className=" absolute  pt-95 font-bold  text-white  text-3xl inset-0 bg-black/35 rounded-3xl px-3">
-                  <h1>COX’S BAZAR</h1>
-                </div>
-              </div>
-              <div className=" relative">
-                <img src={png2} />
-                <div className=" absolute  pt-95 font-bold  text-white  text-3xl inset-0 bg-black/35 rounded-3xl px-3">
-                  <h1>SREEMANGAL</h1>
-                </div>
-              </div>
-              <div className=" relative">
-                <img src={png3} />
-                <div className=" absolute  pt-95 font-bold  text-white  text-3xl inset-0 bg-black/35 rounded-3xl px-3">
-                  <h1>SUNDARBANSR</h1>
-                </div>
-              </div>
-
+     <div className="py-6">
+  <div className="w-full max-w-4xl mx-auto">
+    {/* Carousel */}
+    <div className="carousel w-full">
+      {/* Slide 1 */}
+      <div id="item1" className="carousel-item w-full flex justify-center gap-6">
+        {[png1, png2, png3].map((img, idx) => (
+          <div
+            key={idx}
+            className="relative w-80 overflow-hidden rounded-3xl shadow-lg hover:scale-105 transition-transform duration-300"
+          >
+            <img src={img} className="w-full h-full object-cover" /> 
+            <div className="absolute inset-0 flex items-end justify-center p-4 bg-black/35 rounded-3xl">
+              <h1 className="text-white text-xl font-bold text-center">
+                {["COX’S BAZAR", "SREEMANGAL", "SUNDARBANSR"][idx]}
+              </h1>
             </div>
           </div>
-
-          {/* Navigation Buttons */}
-          <div className="flex w-full justify-center gap-2 py-2">
-            <a href="#item1" className="btn btn-xs">
-              1
-            </a>
-            <a href="#item2" className="btn btn-xs">
-              2
-            </a>
-          </div>
-        </div>
+        ))}
       </div>
+
+      {/* Slide 2 */}
+      <div id="item2" className="carousel-item w-full flex justify-center gap-6">
+        {[png1, png2, png3].map((img, idx) => (
+          <div
+            key={idx}
+            className="relative w-80 overflow-hidden rounded-3xl shadow-lg hover:scale-105 transition-transform duration-300"
+          >
+            <img src={img} className="w-full h-full object-cover" /> {/* height fix */}
+            <div className="absolute inset-0 flex items-end justify-center p-4 bg-black/35 rounded-3xl">
+              <h1 className="text-white text-xl font-bold text-center">
+                {["COX’S BAZAR", "SREEMANGAL", "SUNDARBANSR"][idx]}
+              </h1>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    {/* Navigation Buttons */}
+    <div className="flex justify-center gap-3 mt-4">
+      <a href="#item1" className="btn btn-xs btn-outline btn-primary">
+        1
+      </a>
+      <a href="#item2" className="btn btn-xs btn-outline btn-primary">
+        2
+      </a>
+    </div>
+  </div>
+</div>
+
     </div>
   );
 };
