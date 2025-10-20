@@ -6,7 +6,7 @@ import { IoIosSearch } from "react-icons/io";
 const Navbar = () => {
   return (
     <div className="flex  justify-between w-10/12 mx-auto py-5 items-center ">
-      <img className="w-[120px] h-[56px] text-white" src={logo}></img>
+      <img className="w-[120px] h-[56px] " src={logo}></img>
 
       <div className="relative w-full max-w-[500px]">
         <IoIosSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-white text-xl" />
@@ -19,7 +19,7 @@ const Navbar = () => {
         />
       </div>
 
-      <ul className="flex gap-6 text-md font-medium">
+      <ul className="flex gap-6 text-md font-medium text-white">
         <NavLink to="">News</NavLink>
         <NavLink to="">Destination</NavLink>
         <NavLink to="">Blog</NavLink>

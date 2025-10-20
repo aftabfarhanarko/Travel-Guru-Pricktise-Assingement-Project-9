@@ -14,13 +14,16 @@ const HomeLayout = () => {
       ></div>
 
       {/* 🔹 Dark Overlay Layer */}
-      <div className="absolute inset-0 bg-black/60"></div>
+      <div className="absolute inset-0 bg-black/65"></div>
 
       {/* 🔹 Actual Content Layer (Navbar + Main) */}
-      <div className="relative z-10 text-white">
+      <div className="relative z-10 ">
         <nav>
           <Navbar />
         </nav>
+        <section>
+
+        </section>
 
         <main className="px-8 py-10">
           <Outlet />
