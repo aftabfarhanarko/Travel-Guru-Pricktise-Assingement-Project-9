@@ -4,9 +4,9 @@ const Destination = () => {
   return (
     <div className="flex w-10/12 mx-auto gap-35 justify-center items-center py-30">
       <div className=" ">
-        <h1 className="text-6xl font-bold text-gray-200">Cox's bazar</h1>
+        <h1 className="text-6xl font-bold text-gray-200">Find Your Destination</h1>
         <p className="text-md text-gray-300 py-6 max-w-[530px]">
-        Cox’s Bazar is a town on the southeast coast of Bangladesh. It’s known for its very long, sandy beachfront, stretching from Sea Beach in the north to Kolatoli Beach in the south. Aggameda Khyang monastery is home to bronze statues and centuries-old Buddhist manuscripts. South of town, the tropical rainforest of Himchari National Park has waterfalls and many birds. North, sea turtles breed on nearby Sonadia Island.
+     Find Your Destination — Discover the beauty of the world, one place at a time. Whether you dream of peaceful beaches, snowy mountains, or vibrant cities full of life, every destination has a story to tell. Travel opens your heart, broadens your mind, and fills your soul with unforgettable memories. Explore new cultures, taste local cuisines, and meet people who change the way you see the world. From adventure seekers to peace lovers, every traveler has a unique journey waiting to be lived. Let your curiosity guide you to hidden gems, ancient wonders, and natural treasures that inspire awe. Your next destination isn’t just a place on a map — it’s a feeling, a moment, and an experience that stays with you forever. So pack your bags, follow your heart, and find your destination where dreams meet reality.
         </p>
       </div>
       <div>

@@ -1,10 +1,49 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { FaEye, FaEyeSlash, FaFacebookF } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router";
+import { AuthContext } from "../context/ContextProvider";
+import { toast } from "react-toastify";
 
 const Register = () => {
-      const [show, setShow] = useState(true);
+  const [show, setShow] = useState(true);
+  const { userCreat, profileUpdeat, emailVerifecationsCode } =
+    useContext(AuthContext);
+
+  const handelregister = (e) => {
+    e.preventDefault();
+    const emmail = e.target.email.value;
+    const password = e.target.password.value;
+    const namefs = e.target.name.value;
+    const namels = e.target.namelast.value;
+    const displayName = namefs + namels;
+
+    userCreat(emmail, password)
+      .then((result) => {
+        console.log(result.user);
+        toast.success("User Creat Success");
+
+        profileUpdeat(displayName)
+          .then(() => {
+            toast.success("User Profile Updeat Now");
+
+            emailVerifecationsCode()
+              .then(() => {
+                toast.success("Please Veryfi Your Email");
+              })
+              .catch((err) => {
+                toast.error(err.message);
+              });
+          })
+          .catch((rr) => {
+            toast.error(rr.message);
+          });
+      })
+      .catch((err) => {
+        toast.error(err.message);
+      });
+  };
+  
   return (
     <div>
       {" "}
@@ -12,62 +51,64 @@ const Register = () => {
         <h2 className="text-2xl font-semibold mb-6">Register</h2>
 
         {/* First Name */}
-        <div className="mb-4">
-          <input
-            type="text"
-            placeholder="First Name"
-            className="w-full border-b border-gray-300 outline-none py-2 focus:border-yellow-500"
-          />
-        </div>
-        <div className="mb-4">
-          <input
-            type="text"
-            placeholder="Last Name"
-            className="w-full border-b border-gray-300 outline-none py-2 focus:border-yellow-500"
-          />
-        </div>
-        <div className="mb-4">
-          <input
-            type="text"
-            placeholder="Username or Email"
-            className="w-full border-b border-gray-300 outline-none py-2 focus:border-yellow-500"
-          />
-        </div>
-
-        {/* Password */}
-        <div className="mb-4 relative">
-          <input
-            type={show ? "password" : "text"}
-            placeholder="Passowrd"
-            className="w-full border-b border-gray-300 outline-none py-2 focus:border-yellow-500"
-          />
-          <div
-            onClick={() => setShow(!show)}
-            className=" absolute right-1 top-4"
-          >
-            {show ? <FaEyeSlash /> : <FaEye />}
+        <form onSubmit={handelregister}>
+          <div className="mb-4">
+            <input
+              type="text"
+              name="name"
+              placeholder="First Name"
+              className="w-full border-b border-gray-300 outline-none py-2 focus:border-yellow-500"
+            />
           </div>
-        </div>
+          <div className="mb-4">
+            <input
+              type="text"
+              name="namelast"
+              placeholder="Last Name"
+              className="w-full border-b border-gray-300 outline-none py-2 focus:border-yellow-500"
+            />
+          </div>
+          <div className="mb-4">
+            <input
+              type="text"
+              name="email"
+              placeholder="Username or Email"
+              className="w-full border-b border-gray-300 outline-none py-2 focus:border-yellow-500"
+            />
+          </div>
 
-        {/* Remember & Forgot */}
-        <div className="flex items-center justify-between mb-5 text-sm">
-          <label className="flex items-center gap-2 text-gray-600">
-            <input type="checkbox" className="accent-yellow-500" />
-            Remember Me
-          </label>
-          <a href="#" className="text-yellow-600 hover:underline">
-            Forgot Password
-          </a>
-        </div>
+          {/* Password */}
+          <div className="mb-4 relative">
+            <input
+              type={show ? "password" : "text"}
+              placeholder="Passowrd"
+              name="password"
+              className="w-full border-b border-gray-300 outline-none py-2 focus:border-yellow-500"
+            />
+            <div
+              onClick={() => setShow(!show)}
+              className=" absolute right-1 top-4"
+            >
+              {show ? <FaEyeSlash /> : <FaEye />}
+            </div>
+          </div>
 
-        {/* Login Button */}
-        <button className="w-full bg-yellow-500 text-white font-semibold py-2 rounded-sm hover:bg-yellow-600 transition">
-          Login
-        </button>
+          {/* Remember & Forgot */}
+          <div className="flex items-center justify-between mb-5 text-sm">
+            <label className="flex items-center gap-2 text-gray-600">
+              <input type="checkbox" className="accent-yellow-500" />
+              Remember Me
+            </label>
+          </div>
 
+          {/* Login Button */}
+          <button className="w-full bg-yellow-500 text-white font-semibold py-2 rounded-sm hover:bg-yellow-600 transition">
+            Login
+          </button>
+        </form>
         {/* Create Account */}
         <p className="text-center text-sm text-gray-600 mt-3">
-        Already have an account? 
+          Already have an account?
           <Link to="/connect/login" className="text-yellow-600 hover:underline">
             Login
           </Link>
