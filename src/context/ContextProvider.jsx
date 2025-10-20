@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword, sendEmailVerification, updateProfile } from 'firebase/auth';
+import { createUserWithEmailAndPassword, sendEmailVerification, signInWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import React, { createContext } from 'react';
 import { auth } from '../firebase/fierbase.coinfig';
 
@@ -17,10 +17,15 @@ const ContextProvider = ({children}) => {
     return sendEmailVerification(auth.currentUser);
    }
 
+   const userLogingNow = (email, password) => {
+    return signInWithEmailAndPassword(auth, email, password);
+   }
+
     const informationms = {
      userCreat,
      profileUpdeat,
-     emailVerifecationsCode
+     emailVerifecationsCode,
+     userLogingNow
     }
     return <AuthContext.Provider value={informationms}>{children}</AuthContext.Provider>
 };

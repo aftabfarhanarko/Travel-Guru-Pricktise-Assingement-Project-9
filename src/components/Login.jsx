@@ -3,53 +3,68 @@ import { FaEye, FaEyeSlash, FaFacebookF, FaGoogle } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router";
 import { AuthContext } from "../context/ContextProvider";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const [show, setShow] = useState(true);
-  const informationms = useContext(AuthContext);
-  console.log(informationms)
+  const { userLogingNow } = useContext(AuthContext);
+
+  const handelLoging = (e) => {
+    e.preventDefault();
+    const email = e.target.email?.value;
+    const password = e.target.password?.value;
+    console.log({ email, password });
+    userLogingNow(email, password)
+      .then((result) => {
+        console.log(result.user);
+        toast.success("User Login Successfully");
+      })
+      .catch((error) => {
+        toast.error(error.message);
+      });
+  };
   return (
     <div>
       <div className="bg-white p-8 rounded-md shadow border border-gray-300 w-[450px]">
         <h2 className="text-2xl font-semibold mb-6">Login</h2>
 
-        {/* Username / Email */}
-        <div className="mb-4">
-          <input
-            type="text"
-            placeholder="Enter your username or email"
-            className="w-full border-b border-gray-300 outline-none py-2 focus:border-yellow-500"
-          />
-        </div>
-
-        {/* Password */}
-        <div className="mb-4 relative">
-          <input
-            type={show ? "password" : "text"}
-            placeholder="Enter your password"
-            className="w-full border-b border-gray-300 outline-none py-2 focus:border-yellow-500"
-          />
-          <div
-            onClick={() => setShow(!show)}
-            className=" absolute right-1 top-4"
-          >
-            {show ? <FaEyeSlash /> : <FaEye />}
+        <form onSubmit={handelLoging}>
+          {/* Username / Email */}
+          <div className="mb-4">
+            <input
+              type="text"
+              name="email"
+              placeholder="Enter your username or email"
+              className="w-full border-b border-gray-300 outline-none py-2 focus:border-yellow-500"
+            />
           </div>
-        </div>
 
-        {/* Remember & Forgot */}
-        <div className="flex items-center justify-between mb-5 -mt-2 text-sm">
-          
-          <a  className="text-yellow-600 hover:underline">
-            Forgot Password
-          </a>
-        </div>
+          {/* Password */}
+          <div className="mb-4 relative">
+            <input
+              type={show ? "password" : "text"}
+              name="password"
+              placeholder="Enter your password"
+              className="w-full border-b border-gray-300 outline-none py-2 focus:border-yellow-500"
+            />
+            <div
+              onClick={() => setShow(!show)}
+              className=" absolute right-1 top-4"
+            >
+              {show ? <FaEyeSlash /> : <FaEye />}
+            </div>
+          </div>
 
-        {/* Login Button */}
-        <button className="w-full bg-yellow-500 text-white font-semibold py-2 rounded-sm hover:bg-yellow-600 transition">
-          Login
-        </button>
+          {/* Remember & Forgot */}
+          <div className="flex items-center justify-between mb-5 -mt-2 text-sm">
+            <a className="text-yellow-600 hover:underline">Forgot Password</a>
+          </div>
 
+          {/* Login Button */}
+          <button className="w-full bg-yellow-500 text-white font-semibold py-2 rounded-sm hover:bg-yellow-600 transition">
+            Login
+          </button>
+        </form>
         {/* Create Account */}
         <p className="text-center text-sm text-gray-600 mt-3">
           Don’t have an account?{" "}
