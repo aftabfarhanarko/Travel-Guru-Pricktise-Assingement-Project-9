@@ -3,6 +3,7 @@ import { BsArrowRight } from "react-icons/bs";
 import png1 from "../images/Sajek.png";
 import png2 from "../images/Sreemongol.png";
 import png3 from "../images/sundorbon.png";
+import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 
 const Home = () => {
   return (
@@ -28,10 +29,10 @@ const Home = () => {
         {[png1, png2, png3].map((img, idx) => (
           <div
             key={idx}
-            className="relative w-80 overflow-hidden rounded-3xl shadow-lg hover:scale-105 transition-transform duration-300"
+            className="relative w-80 overflow-hidden rounded-3xl shadow-lg hover:scale-102 transition-transform duration-300"
           >
-            <img src={img} className="w-full h-full object-cover" /> 
-            <div className="absolute inset-0 flex items-end justify-center p-4 bg-black/35 rounded-3xl">
+            <img src={img} className="w-full h-full object-cover " /> 
+            <div className="absolute inset-0 flex items-end justify-center p-4 bg-black/35 rounded-3xl hover:border-3 border-yellow-400">
               <h1 className="text-white text-xl font-bold text-center">
                 {["COX’S BAZAR", "SREEMANGAL", "SUNDARBANSR"][idx]}
               </h1>
@@ -45,10 +46,10 @@ const Home = () => {
         {[png1, png2, png3].map((img, idx) => (
           <div
             key={idx}
-            className="relative w-80 overflow-hidden rounded-3xl shadow-lg hover:scale-105 transition-transform duration-300"
+            className="relative w-80 overflow-hidden rounded-3xl shadow-lg hover:scale-103 transition-transform duration-300"
           >
             <img src={img} className="w-full h-full object-cover" /> {/* height fix */}
-            <div className="absolute inset-0 flex items-end justify-center p-4 bg-black/35 rounded-3xl">
+            <div className="absolute inset-0 flex items-end justify-center p-4 bg-black/35 rounded-3xl hover:border-3 hover:border-yellow-400">
               <h1 className="text-white text-xl font-bold text-center">
                 {["COX’S BAZAR", "SREEMANGAL", "SUNDARBANSR"][idx]}
               </h1>
@@ -60,11 +61,13 @@ const Home = () => {
 
     {/* Navigation Buttons */}
     <div className="flex justify-center gap-3 mt-4">
-      <a href="#item1" className="btn btn-xs btn-outline btn-primary">
-        1
+      <a href="#item1" className="btn btn-xs btn-outline btn-primary  text-white">
+       <AiOutlineLeft />
       </a>
-      <a href="#item2" className="btn btn-xs btn-outline btn-primary">
-        2
+      <a href="#item2" className="btn btn-xs btn-outline btn-primary text-white">
+       <AiOutlineRight />
+
+
       </a>
     </div>
   </div>
