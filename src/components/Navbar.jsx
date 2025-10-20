@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import logo from "../images/Frame.png";
 import { Link, NavLink } from "react-router";
 import { IoIosSearch } from "react-icons/io";
-import './nav.css'
+import "./nav.css";
+import { AuthContext } from "../context/ContextProvider";
+import { DotLoader, FadeLoader } from "react-spinners";
 
 const Navbar = () => {
+  const { user, myUserSignOut, loding } = useContext(AuthContext);
+  console.log("My User", user);
+
+  const goUserWebsite = () => {
+    myUserSignOut();
+  };
   return (
     <div className="flex  justify-between w-10/12 mx-auto py-5 items-center ">
       <img className="w-[120px] h-[56px] " src={logo}></img>
@@ -24,10 +32,21 @@ const Navbar = () => {
         <NavLink to="/news">News</NavLink>
         <NavLink to="/destination">Destination</NavLink>
         <NavLink to="">Blog</NavLink>
-        {/* <NavLink to="">Contact</NavLink> */}
-      <Link to="/connect/login" className="btn btn-warning py-1 px-5">
-        Login
-      </Link>
+        {
+          user && <NavLink to="/hotel">Book Hotel</NavLink>
+        }
+
+        {loding ? (
+          <DotLoader color="#60dba4" />
+        ) : user ? (
+          <button onClick={goUserWebsite} className="btn btn-warning py-1 px-5">
+            Sign Out
+          </button>
+        ) : (
+          <Link to="/connect/login" className="btn btn-warning py-1 px-5">
+            Login
+          </Link>
+        )}
       </div>
     </div>
   );

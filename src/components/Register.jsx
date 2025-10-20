@@ -54,10 +54,12 @@ const Register = () => {
         <form onSubmit={handelregister}>
           <div className="mb-4">
             <input
+
               type="text"
               name="name"
               placeholder="First Name"
               className="w-full border-b border-gray-300 outline-none py-2 focus:border-yellow-500"
+              required
             />
           </div>
           <div className="mb-4">
@@ -71,6 +73,7 @@ const Register = () => {
           <div className="mb-4">
             <input
               type="text"
+              required
               name="email"
               placeholder="Username or Email"
               className="w-full border-b border-gray-300 outline-none py-2 focus:border-yellow-500"
@@ -83,6 +86,7 @@ const Register = () => {
               type={show ? "password" : "text"}
               placeholder="Passowrd"
               name="password"
+              required
               className="w-full border-b border-gray-300 outline-none py-2 focus:border-yellow-500"
             />
             <div

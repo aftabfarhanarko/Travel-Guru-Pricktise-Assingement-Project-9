@@ -6,6 +6,7 @@ import ConteactSections from "../layout/ConteactSections";
 import Login from "../components/Login";
 import Register from "../components/Register";
 import News from "../components/News";
+import BookHotel from "../components/BookHotel";
 
 export const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ export const router = createBrowserRouter([
         path:"/news",
         loader:() => fetch("/news.json"),
         element:<News></News>
+      },
+      {
+        path:"/hotel",
+        element: <BookHotel></BookHotel>
       }
     ],
   },
