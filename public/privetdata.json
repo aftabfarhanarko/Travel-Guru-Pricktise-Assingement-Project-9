@@ -12,7 +12,7 @@
     "rating": { "value": 4.9, "count": 20 },
     "price_per_night": 34,
     "total_price": 136,
-    "image": "https://example.com/images/apt1.jpg"
+    "image": "https://i.ibb.co.com/Z66Ltx06/Rectangle-26.png"
   },
   {
     "id": 2,
@@ -27,7 +27,7 @@
     "rating": { "value": 4.8, "count": 10 },
     "price_per_night": 52,
     "total_price": 208,
-    "image": "https://example.com/images/apt2.jpg"
+    "image": "https://i.ibb.co.com/Rph4vY7j/Rectangle-27.png"
   },
   {
     "id": 3,
@@ -42,7 +42,7 @@
     "rating": { "value": 4.9, "count": 25 },
     "price_per_night": 44,
     "total_price": 176,
-    "image": "https://example.com/images/apt3.jpg"
+    "image": "https://i.ibb.co.com/PzW1RB3k/Rectangle-28.png"
   },
   {
     "id": 4,
@@ -57,7 +57,7 @@
     "rating": { "value": 4.7, "count": 8 },
     "price_per_night": 68,
     "total_price": 272,
-    "image": "https://example.com/images/apt4.jpg"
+    "image": "https://i.ibb.co.com/dJLxmpF8/dubai-united-arab-emirates-february-600nw-590724503.webp"
   },
   {
     "id": 5,
@@ -72,7 +72,7 @@
     "rating": { "value": 4.6, "count": 3 },
     "price_per_night": 97,
     "total_price": 388,
-    "image": "https://example.com/images/apt5.jpg"
+    "image": "https://i.ibb.co.com/BH9gtzD4/image-processing20191214-4-vx1s3k.jpg"
   },
   {
     "id": 6,
@@ -87,6 +87,6 @@
     "rating": { "value": 4.5, "count": 5 },
     "price_per_night": 20,
     "total_price": 80,
-    "image": "https://example.com/images/apt6.jpg"
+    "image": "https://i.ibb.co.com/QvkpqBJh/world-heritage-day.jpg"
   }
 ]

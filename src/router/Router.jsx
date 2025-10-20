@@ -28,6 +28,7 @@ export const router = createBrowserRouter([
       },
       {
         path:"/hotel",
+        loader: () => fetch("/privetdata.json"),
         element: <BookHotel></BookHotel>
       }
     ],
